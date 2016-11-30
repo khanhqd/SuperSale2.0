@@ -45,46 +45,40 @@ export default class Home extends Component {
       });
     }
   }
-
+  onPress0() {
+    this.props.navigator.push({
+      title: "Dữ liệu khách hàng",
+      screen: "example.Database",
+      animated: true
+    });
+  }
   render() {
     return (
-      <ScrollView >
-        <Text>Home
-        </Text>
-      </ScrollView>
+      <View style={{flex:1}}>
+        <View style={{flex:1, backgroundColor:'burlywood'}}>
+          <Image
+          style={{height:height/3, width:width}}
+          source={require('../../img/Home-banner-1.png')}/>
+        </View>
+        <View style={{flex:1, backgroundColor:'#0f4d92', flexDirection:'row'}}>
+          <View style={{flex:2, justifyContent:'center', alignItems:'center'}}>
+            <Text style={{fontSize:35, color:'white'}}> Hôm nay bạn đã gọi 0 cuộc!</Text>
+            <Text style={{fontSize:35, color:'white'}}>Chiến tiếp thôi!</Text>
+          </View>
+          <TouchableOpacity onPress={this.onPress0.bind(this)} style={{flex:1, backgroundColor:'darkseagreen', justifyContent:'center', alignItems:'center'}}>
+            <Text style={{fontSize:30, color:'white'}}>Database</Text>
+            <Text style={{fontSize:15, color:'white'}}>Click here!</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{flex:1, backgroundColor:'white', justifyContent:'center', alignItems:'center'}}>
+          <Text style={{color:'black', fontSize:25, fontWeight:'bold'}}>TRÊN CON ĐƯỜNG THÀNH CÔNG</Text>
+          <Text style={{color:'black', fontSize:25, fontWeight:'bold'}}>KHÔNG CÓ DẤU CHÂN </Text>
+          <Text style={{color:'black', fontSize:25, fontWeight:'bold'}}>CỦA KẺ LƯỜI BIẾNG</Text>
+          <Text style={{color:'black', fontSize:13}}>                   P/S: HỌ ĐI ÔTÔ MÀ!</Text>
+        </View>
+      </View>
     );
   }
-
-//   onLightBoxPress() {
-//     this.props.navigator.showLightBox({
-//       screen: "example.LightBoxScreen",
-//       style: {
-//         backgroundBlur: "dark"
-//       },
-//       passProps: {
-//         greeting: 'hey there'
-//       },
-//     });
-//   }
-//
-//   onInAppNotificationPress() {
-//     this.props.navigator.showInAppNotification({
-//       screen: "example.NotificationScreen"
-//     });
-//   }
-//
-//   onStartSingleScreenApp() {
-//     Navigation.startSingleScreenApp({
-//       screen: {
-//         screen: 'example.FirstTabScreen'
-//       },
-//       drawer: {
-//         left: {
-//           screen: 'example.SideMenu'
-//         }
-//       }
-//     });
-//   }
 }
 
 const styles = StyleSheet.create({
