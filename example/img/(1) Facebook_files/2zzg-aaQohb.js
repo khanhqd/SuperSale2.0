@@ -1,3 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js(["RwYM5"]); }
-
-__d('MessengerLightweightActionSnippet.react',['cx','MercuryShareAttachmentReactShape','React'],(function a(b,c,d,e,f,g,h){'use strict';var i,j;if(c.__markCompiled)c.__markCompiled();i=babelHelpers.inherits(k,c('React').PureComponent);j=i&&i.prototype;k.prototype.render=function(){return (c('React').createElement('span',{className:"_3l6h"},this.props.attachment.title));};function k(){i.apply(this,arguments);}k.propTypes={attachment:c('MercuryShareAttachmentReactShape')};f.exports=k;}),null);
