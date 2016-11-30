@@ -1,22 +1,24 @@
 import {Navigation} from 'react-native-navigation';
 
-import FirstTabScreen from './FirstTabScreen';
-import SecondTabScreen from './SecondTabScreen';
-import PushedScreen from './PushedScreen';
-import StyledScreen from './StyledScreen';
 import SideMenu from './SideMenu';
-import ModalScreen from './ModalScreen';
-import NotificationScreen from './NotificationScreen';
-import LightBoxScreen from './LightBoxScreen';
-
+import Home from './Home';
+import Checklist from './Checklist';
+import CustomerDetail from './CustomerDetail';
+import Database from './Database';
+import History from './History';
+import Motivation from './Motivation';
+import MyCustomer from './MyCustomer';
+import Target from './Target';
 // register all screens of the app (including internal ones)
 export function registerScreens() {
-  Navigation.registerComponent('example.FirstTabScreen', () => FirstTabScreen);
-  Navigation.registerComponent('example.SecondTabScreen', () => SecondTabScreen);
-  Navigation.registerComponent('example.PushedScreen', () => PushedScreen);
-  Navigation.registerComponent('example.StyledScreen', () => StyledScreen);
-  Navigation.registerComponent('example.ModalScreen', () => ModalScreen);
-  Navigation.registerComponent('example.NotificationScreen', () => NotificationScreen);
   Navigation.registerComponent('example.SideMenu', () => SideMenu);
-  Navigation.registerComponent('example.LightBoxScreen', () => LightBoxScreen);
+  Navigation.registerComponent('example.Home', () => Home);
+  Navigation.registerComponent('example.Checklist', () => Checklist);
+  Navigation.registerComponent('example.CustomerDetail', () => CustomerDetail);
+  Navigation.registerComponent('example.Database', () => Database);
+  Navigation.registerComponent('example.History', () => History);
+  Navigation.registerComponent('example.Motivation', () => Motivation);
+  Navigation.registerComponent('example.MyCustomer', () => MyCustomer);
+  Navigation.registerComponent('example.Target', () => Target);
+
 }

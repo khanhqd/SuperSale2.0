@@ -53,8 +53,8 @@ registerScreens();
 // // });
 Navigation.startSingleScreenApp({
  screen: {
-   screen: 'example.HomePizza',
-   title: 'HomePizza',
+   screen: 'example.Home',
+   title: 'Home',
    navigatorStyle: {
      navBarBackgroundColor: '#4dbce9',
      navBarTextColor: '#ffff00',

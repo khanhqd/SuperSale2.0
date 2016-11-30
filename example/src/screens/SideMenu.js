@@ -15,23 +15,33 @@ export default class SideMenu extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Night Pizza</Text>
+        <Text style={styles.title}>SUPER SALE</Text>
 
-        <TouchableOpacity onPress={ this.onPressGioiThieu.bind(this) }>
-          <Text style={styles.button}>Giới thiệu</Text>
+        <TouchableOpacity onPress={ this.onPress0.bind(this) }>
+          <Text style={styles.button}>Dữ liệu khách hàng</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={ this.onPressMenu.bind(this) }>
-          <Text style={styles.button}>Menu</Text>
+        <TouchableOpacity onPress={ this.onPress1.bind(this) }>
+          <Text style={styles.button}>Lịch sử</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={ this.onPressKhuyenMai.bind(this) }>
-          <Text style={styles.button}>Khuyến mại</Text>
+        <TouchableOpacity onPress={ this.onPress2.bind(this) }>
+          <Text style={styles.button}>Khách của tôi</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={ this.onPressLienHe.bind(this) }>
-          <Text style={styles.button}>Liên hệ</Text>
+        <TouchableOpacity onPress={ this.onPress3.bind(this) }>
+          <Text style={styles.button}>Tiến độ</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity onPress={ this.onPress4.bind(this) }>
+          <Text style={styles.button}>Checklist</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={ this.onPress5.bind(this) }>
+          <Text style={styles.button}>Tạo động lực</Text>
+        </TouchableOpacity>
+
+
       </View>
     );
   }
@@ -45,36 +55,52 @@ export default class SideMenu extends Component {
   //   });
   // }
 
-  onPressGioiThieu() {
+  onPress0() {
     this._toggleDrawer();
     this.props.navigator.resetTo({
-      title: "Giới Thiệu",
-      screen: "example.GioiThieu",
-      animated:true
+      title: "Dữ liệu khách hàng",
+      screen: "example.Database",
+      animated: true
     });
   }
-  onPressMenu() {
+  onPress1() {
     this._toggleDrawer();
     this.props.navigator.resetTo({
-      title: "Menu",
-      screen: "example.Menu",
-      animated:true
+      title: "Lịch sử",
+      screen: "example.History",
+      animated: true
     });
   }
-  onPressLienHe() {
+  onPress2() {
     this._toggleDrawer();
-    this.props.navigator.push({
-      title: "Liên Hệ",
-      screen: "example.LienHe",
-      animated:true
+    this.props.navigator.resetTo({
+      title: "Khách của tôi",
+      screen: "example.MyCustomer",
+      animated: true
     });
   }
-  onPressKhuyenMai() {
+  onPress3() {
     this._toggleDrawer();
-    this.props.navigator.push({
-      title: "Khuyến Mãi",
-      screen: "example.KhuyenMai",
-      animated:false
+    this.props.navigator.resetTo({
+      title: "Tiến độ",
+      screen: "example.Target",
+      animated: true
+    });
+  }
+  onPress4() {
+    this._toggleDrawer();
+    this.props.navigator.resetTo({
+      title: "Checklist",
+      screen: "example.Checklist",
+      animated: true
+    });
+  }
+  onPress5() {
+    this._toggleDrawer();
+    this.props.navigator.resetTo({
+      title: "Tạo động lực",
+      screen: "example.Motivation",
+      animated: true
     });
   }
   _toggleDrawer() {
