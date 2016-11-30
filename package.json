@@ -1,0 +1,57 @@
+{
+  "name": "react-native-navigation",
+  "version": "2.0.0-experimental.148",
+  "description": "React Native Navigation - truly native navigation for iOS and Android",
+  "license": "MIT",
+  "nativePackage": true,
+  "author": "Tal Kol <talkol@gmail.com>",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "bugs": {
+    "url": "https://github.com/wix/react-native-navigation/issues"
+  },
+  "homepage": "https://github.com/wix/react-native-navigation",
+  "readme": "https://github.com/wix/react-native-navigation#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wix/react-native-navigation.git"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "build": ":",
+    "lint": "eslint src test",
+    "test:js": "jest",
+    "test:android": "cd android && ./gradlew clean testDebugUnitTest",
+    "test:ios": ":",
+    "pretest": "npm run lint",
+    "test": "npm run test:js && npm run test:android && npm run test:ios",
+    "release": "npm version prerelease && npm publish --tag next && npm view react-native-navigation dist-tags && git push"
+  },
+  "peerDependencies": {
+    "react-native": "*",
+    "react": "*"
+  },
+  "dependencies": {
+    "lodash": "^4.16.0"
+  },
+  "optionalDependencies": {
+    "react-redux": "*"
+  },
+  "devDependencies": {
+    "react-native": "0.37.0",
+    "react": "15.3.2",
+    "babel-cli": "^6.8.0",
+    "babel-core": "^6.8.0",
+    "babel-polyfill": "^6.8.0",
+    "babel-preset-react-native": "^1.0.0",
+    "babel-register": "^6.8.0",
+    "eslint": "^2.5.1",
+    "eslint-plugin-babel": "^3.0.0",
+    "eslint-plugin-react": "^4.2.3",
+    "eslint-plugin-react-native": "^1.0.0",
+    "babel-eslint": "^6.0.4",
+    "jest": "^17.0.0",
+    "jest-cli": "^17.0.0"
+  }
+}
