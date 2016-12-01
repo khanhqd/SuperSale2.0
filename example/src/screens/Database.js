@@ -7,11 +7,13 @@ import {
   Alert,
   Platform,
   Dimensions,
-  TextInput
+  TextInput,
+  Picker
 } from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import InfoBox from './_Subtance/InfoBox';
 var {height, width} = Dimensions.get('window');
+const Item = Picker.Item;
 export default class Database extends Component {
   static navigatorButtons = {
     leftButtons: [{
@@ -34,7 +36,8 @@ export default class Database extends Component {
     super(props);
     this.state={
       content :'Trong này ghi nội dung tương tác lần 1',
-      plan: 'Kế hoạch cho lần gọi tới'
+      plan: 'Kế hoạch cho lần gọi tới',
+      selected0: 'key0'
     }
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
@@ -53,6 +56,12 @@ export default class Database extends Component {
       Alert.alert('NavBar', 'Add button pressed');
     }
   }
+  onValueChange(key, value) {
+    const newState = {};
+    newState[key] = value;
+    this.setState(newState);
+  };
+
 
   render() {
     return (
@@ -81,7 +90,22 @@ export default class Database extends Component {
           value={this.state.content}/>
         </View>
 
-        <InfoBox title='Tình trạng:' content='Đã hẹn' />
+        <View style={styles.box}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.textTitle}>Trạng thái:</Text>
+          </View>
+        <View style={{paddingLeft:25, flexDirection:'row'}}>
+          <Picker
+              style={styles.picker}
+              selectedValue={this.state.selected0}
+              onValueChange={this.onValueChange.bind(this, 'selected0')}>
+              <Item label="Chưa xử lý" value="key0" />
+              <Item label="Gọi không thành công" value="key1" />
+              <Item label="Đã hẹn" value="key2" />
+              <Item label="Đã gặp trực tiếp" value="key3" />
+          </Picker>
+        </View>
+        </View>
 
         <View style={styles.box}>
           <View style={styles.titleContainer}>
@@ -124,11 +148,11 @@ const styles = StyleSheet.create({
   textTitle:{
     color:'black',
     paddingLeft:20,
-    fontSize:13,
+    fontSize:15,
     fontWeight:'bold'
   },
   textBox:{
-    fontSize:13,
+    fontSize:15,
     padding:10,
     paddingLeft:30
   },
@@ -140,6 +164,10 @@ const styles = StyleSheet.create({
     margin: 5,
     marginVertical: 1,
     overflow: 'hidden',
-
+  },
+  picker: {
+    width: width,
+    backgroundColor:'white',
+    paddingLeft:30,
   },
 });

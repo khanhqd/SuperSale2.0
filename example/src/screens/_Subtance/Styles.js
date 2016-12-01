@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   textTitle:{
     color:'black',
     paddingLeft:20,
-    fontSize:13,
+    fontSize:15,
     fontWeight:'bold'
   },
   text:{
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     textAlign:'center',
   },
   textBox:{
-    fontSize:13,
+    fontSize:15,
     padding:10,
     paddingLeft:30
   },
