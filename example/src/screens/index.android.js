@@ -9,6 +9,7 @@ import History from './History';
 import Motivation from './Motivation';
 import MyCustomer from './MyCustomer';
 import Target from './Target';
+import Login from './Login';
 // register all screens of the app (including internal ones)
 export function registerScreens() {
   Navigation.registerComponent('example.SideMenu', () => SideMenu);
@@ -20,5 +21,6 @@ export function registerScreens() {
   Navigation.registerComponent('example.Motivation', () => Motivation);
   Navigation.registerComponent('example.MyCustomer', () => MyCustomer);
   Navigation.registerComponent('example.Target', () => Target);
+  Navigation.registerComponent('example.Login', () => Login);
 
 }

@@ -53,19 +53,6 @@ registerScreens();
 // // });
 Navigation.startSingleScreenApp({
  screen: {
-   screen: 'example.Home',
-   title: 'Home',
-   navigatorStyle: {
-     navBarBackgroundColor: '#4dbce9',
-     navBarTextColor: '#ffff00',
-     navBarSubtitleTextColor: '#ff0000',
-     navBarButtonColor: '#ffffff',
-     statusBarTextColorScheme: 'light'
-   }
- },
- drawer: {
-   left: {
-     screen: 'example.SideMenu'
-   }
+   screen: 'example.Login'
  }
 });

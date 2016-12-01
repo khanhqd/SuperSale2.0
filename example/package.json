@@ -8,8 +8,9 @@
     "android": "cd android && ./gradlew installDebug"
   },
   "dependencies": {
-    "react-native": "0.38.0",
     "react": "15.4.1",
-    "react-native-navigation": "file:../"
+    "react-native": "0.38.0",
+    "react-native-navigation": "file:../",
+    "react-native-textinput-effects": "^0.2.0"
   }
 }
