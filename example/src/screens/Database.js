@@ -5,10 +5,13 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
-  Platform
+  Platform,
+  Dimensions,
+  TextInput
 } from 'react-native';
 import {Navigation} from 'react-native-navigation';
-
+import InfoBox from './_Subtance/InfoBox';
+var {height, width} = Dimensions.get('window');
 export default class Database extends Component {
   static navigatorButtons = {
     leftButtons: [{
@@ -29,7 +32,10 @@ export default class Database extends Component {
 
   constructor(props) {
     super(props);
-    // if you want to listen on navigator events, set this up
+    this.state={
+      content :'Trong này ghi nội dung tương tác lần 1',
+      plan: 'Kế hoạch cho lần gọi tới'
+    }
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
@@ -50,32 +56,47 @@ export default class Database extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, padding: 20}}>
-        <Text>  Dữ liệu khách hàng
-        </Text>
+      <View style={styles.container}>
+        <View style={{flexDirection:'row', width:width}}>
+          <View style={{flex:1}}>
+              <InfoBox title='Mã KH:' content='M12345' />
+              <InfoBox title='Họ tên:' content='Thanh niên chuyên cần' />
+              <InfoBox title='Điện thoại' content='0123.456.789' />
+          </View>
+          <View style={{flex:1}}>
+              <InfoBox title='Địa chỉ:' content='612 La Thành - Hà Nội' />
+              <InfoBox title='Tình trạng:' content='Khách đã đặt hẹn' />
+              <InfoBox title='Ngày sinh:' content='11.22.1989' />
+          </View>
+        </View>
+        <InfoBox title='Nhân viên phụ trách:' content='Quách Khánh' />
+
+        <View style={styles.box}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.textTitle}>Nội dung tương tác:</Text>
+          </View>
+          <TextInput
+          style={styles.textBox}
+          onChangeText={(content) => this.setState({content})}
+          value={this.state.content}/>
+        </View>
+
+        <InfoBox title='Tình trạng:' content='Đã hẹn' />
+
+        <View style={styles.box}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.textTitle}>Kế hoạch:</Text>
+          </View>
+          <TextInput
+          style={styles.textBox}
+          onChangeText={(plan) => this.setState({plan})}
+          value={this.state.plan}/>
+        </View>
+
+
       </View>
     );
   }
-
-//   onLightBoxPress() {
-//     this.props.navigator.showLightBox({
-//       screen: "example.LightBoxScreen",
-//       style: {
-//         backgroundBlur: "dark"
-//       },
-//       passProps: {
-//         greeting: 'hey there'
-//       },
-//     });
-//   }
-//
-//   onInAppNotificationPress() {
-//     this.props.navigator.showInAppNotification({
-//       screen: "example.NotificationScreen"
-//     });
-//   }
-//
-
 }
 const styles = StyleSheet.create({
   button: {
@@ -84,5 +105,41 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 10,
     color: 'blue'
-  }
+  },
+  container:{
+    backgroundColor: '#e9eaed',
+    flex: 1,
+    justifyContent:'flex-start'
+  },
+  titleContainer:{
+    borderBottomWidth: 0.5,
+    borderTopLeftRadius: 3,
+    borderTopRightRadius: 2.5,
+    borderBottomColor: '#d6d7da',
+    backgroundColor: '#f6f7f8',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+
+  textTitle:{
+    color:'black',
+    paddingLeft:20,
+    fontSize:13,
+    fontWeight:'bold'
+  },
+  textBox:{
+    fontSize:13,
+    padding:10,
+    paddingLeft:30
+  },
+  box:{
+    borderRadius: 3,
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    backgroundColor: '#ffffff',
+    margin: 5,
+    marginVertical: 1,
+    overflow: 'hidden',
+
+  },
 });
