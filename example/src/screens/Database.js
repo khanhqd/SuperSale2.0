@@ -8,7 +8,8 @@ import {
   Platform,
   Dimensions,
   TextInput,
-  Picker
+  Picker,
+  ScrollView
 } from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import InfoBox from './_Subtance/InfoBox';
@@ -62,10 +63,19 @@ export default class Database extends Component {
     this.setState(newState);
   };
 
+  backCustomer(){
+    Alert.alert('Back');
+  };
+  
+  nextCustomer(){
+    Alert.alert('Next');
+  }
+
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
+      <ScrollView style={styles.container}>
         <View style={{flexDirection:'row', width:width}}>
           <View style={{flex:1}}>
               <InfoBox title='Mã KH:' content='M12345' />
@@ -74,7 +84,7 @@ export default class Database extends Component {
           </View>
           <View style={{flex:1}}>
               <InfoBox title='Địa chỉ:' content='612 La Thành - Hà Nội' />
-              <InfoBox title='Tình trạng:' content='Khách đã đặt hẹn' />
+              <InfoBox title='Email:' content='khanhqd.neu@gmail' />
               <InfoBox title='Ngày sinh:' content='11.22.1989' />
           </View>
         </View>
@@ -116,7 +126,18 @@ export default class Database extends Component {
           onChangeText={(plan) => this.setState({plan})}
           value={this.state.plan}/>
         </View>
+      </ScrollView>
+      <View style={{flexDirection:'row',paddingTop:5, justifyContent:'space-around', backgroundColor:'#ffffff'}}>
+        <TouchableOpacity style={styles.button2} onPress={() => {this.backCustomer()}}>
+            <Text style={{fontWeight:'bold', color:'white'}}> BACK
+            </Text>
+        </TouchableOpacity>
 
+        <TouchableOpacity style={styles.button2} onPress={() => {this.nextCustomer()}}>
+            <Text style={{fontWeight:'bold', color:'white'}}> NEXT
+            </Text>
+        </TouchableOpacity>
+      </View>
 
       </View>
     );
@@ -132,8 +153,6 @@ const styles = StyleSheet.create({
   },
   container:{
     backgroundColor: '#e9eaed',
-    flex: 1,
-    justifyContent:'flex-start'
   },
   titleContainer:{
     borderBottomWidth: 0.5,
@@ -170,4 +189,12 @@ const styles = StyleSheet.create({
     backgroundColor:'white',
     paddingLeft:30,
   },
+  button2:{
+    height:40,
+    width:100,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'#336600',
+    borderRadius:5
+  }
 });
