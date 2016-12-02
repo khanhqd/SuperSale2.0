@@ -8,8 +8,13 @@
     "android": "cd android && ./gradlew installDebug"
   },
   "dependencies": {
-    "react-native": "0.38.0",
     "react": "15.4.1",
-    "react-native-navigation": "file:../"
+    "react-native": "0.38.0",
+    "react-native-animatable": "^1.1.0",
+    "react-native-circular-progress": "0.0.7",
+    "react-native-navigation": "file:../",
+    "react-native-progress": "^3.1.0",
+    "react-native-textinput-effects": "^0.2.0",
+    "react-native-vector-icons": "^3.0.0"
   }
 }
