@@ -53,6 +53,12 @@ registerScreens();
 // // });
 Navigation.startSingleScreenApp({
  screen: {
-   screen: 'example.Login'
- }
+  //  screen: 'example.Login'
+  screen:'example.Home'
+},
+drawer:{
+  left:{
+    screen:'example.SideMenu'
+  }
+}
 });

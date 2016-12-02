@@ -47,12 +47,21 @@ export default class MyCustomer extends Component {
       Alert.alert('NavBar', 'Add button pressed');
     }
   }
-
+  onPress0() {
+    Navigation.showModal({
+      screen: "example.CustomerDetail",
+      title: "Chi tiết khách hàng",
+      animationType: 'slide-up'
+    });      
+  }
   render() {
     return (
       <View style={{flex: 1, padding: 20}}>
-        <Text> Khách hàng của tôi
-        </Text>
+        <TouchableOpacity onPress={this.onPress0.bind(this)}>
+          <Text style={{color: 'blue'}}>Chi tiết khách hàng
+          </Text>
+        </TouchableOpacity>
+
       </View>
     );
   }

@@ -5,10 +5,14 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
-  Platform
-} from 'react-native';
+  Platform,
+  ScrollView,
+  Dimensions,
+  TextInput
+  } from 'react-native';
 import {Navigation} from 'react-native-navigation';
-
+import InfoBox from './_Subtance/InfoBox';
+var {height, width} = Dimensions.get('window');
 export default class CustomerDetail extends Component {
   static navigatorButtons = {
     leftButtons: [{
@@ -17,8 +21,8 @@ export default class CustomerDetail extends Component {
     }],
     rightButtons:[
       {
-        icon: require('../../img/shop.png'),
-        id: 'shop'
+        icon: require('../../img/back-icon.png'),
+        id: 'back'
       }]
   };
   static navigatorStyle = {
@@ -34,7 +38,9 @@ export default class CustomerDetail extends Component {
 
   constructor(props) {
     super(props);
-    // if you want to listen on navigator events, set this up
+    this.state={
+      content :'Trong này ghi nội dung tương tác..',
+    }
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
@@ -45,20 +51,52 @@ export default class CustomerDetail extends Component {
         animated: true
       });
     }
-    if (event.id === 'shop') {
-      Alert.alert('NavBar', 'Edit button pressed');
+    if (event.id === 'back') {
+      Navigation.dismissModal({
+        animationType: 'slide-down'
+      });
     }
     if (event.id === 'add') {
       Alert.alert('NavBar', 'Add button pressed');
     }
   }
-
+  addContent(){
+    Alert.alert('Add');
+  }
   render() {
     return (
-      <View style={{flex: 1, padding: 20}}>
-        <Text> Chi tiết khách hàng
-        </Text>
-      </View>
+      <ScrollView style={styles.container}>
+        <View style={{flexDirection:'row', width:width}}>
+          <View style={{flex:1}}>
+              <InfoBox title='Mã KH:' content='M12345' />
+              <InfoBox title='Họ tên:' content='Thanh niên chuyên cần' />
+              <InfoBox title='Điện thoại' content='0123.456.789' />
+          </View>
+          <View style={{flex:1}}>
+              <InfoBox title='Địa chỉ:' content='612 La Thành - Hà Nội' />
+              <InfoBox title='Email:' content='khanhqd.neu@gmail' />
+              <InfoBox title='Ngày sinh:' content='11.22.1989' />
+          </View>
+        </View>
+        <InfoBox title='Nhân viên phụ trách:' content='Quách Khánh' />
+        <InfoBox title='Nội dung lần 1: ("Time")' content='Khách quan tâm đến sản phẩm...' />
+        <InfoBox title='Kế hoạch: ' content='Khách quan tâm đến sản phẩm...' />
+        <TouchableOpacity style={styles.button2} onPress={() => {this.addContent()}}>
+            <Text style={{fontWeight:'bold', color:'white'}}> add
+            </Text>
+        </TouchableOpacity>
+        <View style={styles.box}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.textTitle}>Nội dung tương tác:</Text>
+          </View>
+          <TextInput
+          style={styles.textBox}
+          onChangeText={(content) => this.setState({content})}
+          value={this.state.content}/>
+        </View>
+
+      </ScrollView>
+
     );
   }
 
@@ -89,5 +127,46 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 10,
     color: 'blue'
+  },
+  container:{
+    backgroundColor: '#e9eaed',
+  },
+  titleContainer:{
+    borderBottomWidth: 0.5,
+    borderTopLeftRadius: 3,
+    borderTopRightRadius: 2.5,
+    borderBottomColor: '#d6d7da',
+    backgroundColor: '#f6f7f8',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+
+  textTitle:{
+    color:'black',
+    paddingLeft:20,
+    fontSize:15,
+    fontWeight:'bold'
+  },
+  textBox:{
+    fontSize:15,
+    padding:10,
+    paddingLeft:30
+  },
+  box:{
+    borderRadius: 3,
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    backgroundColor: '#ffffff',
+    margin: 5,
+    marginVertical: 1,
+    overflow: 'hidden',
+  },
+  button2:{
+    height:40,
+    width:100,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'#336600',
+    borderRadius:5
   }
 });
