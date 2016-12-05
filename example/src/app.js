@@ -1,10 +1,10 @@
 import {
   Platform
 } from 'react-native';
-import {Navigation} from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation';
 
 // screen related book keeping
-import {registerScreens} from './screens';
+import { registerScreens } from './screens';
 registerScreens();
 
 // const createTabs = () => {
@@ -52,13 +52,14 @@ registerScreens();
 // //   }
 // // });
 Navigation.startSingleScreenApp({
- screen: {
-  //  screen: 'example.Login'
-  screen:'example.Home'
-},
-drawer:{
-  left:{
-    screen:'example.SideMenu'
+  screen: {
+    //  screen: 'example.Login'
+    screen: 'example.Login'
+  },
+   drawer: {
+     left: {
+      screen: 'example.SideMenu'
+    },
+    disableOpenGesture: false
   }
-}
 });
